@@ -1,0 +1,77 @@
+# ============================================================
+#  ZarTabNPC 2.0  -  Cabecas giratorias + TAB
+#  Cores: &a, &l ... e hex &#RRGGBB
+#  Placeholders proprios: %player% %online% %max% %ping% %world%
+#  + qualquer placeholder do PlaceholderAPI
+#  Para grupos/prefixos: /papi ecloud download LuckPerms  e  /papi reload
+# ============================================================
+
+heads:
+  bedrock-fallback:
+    enabled: true
+  default-scale: 2.0            # tamanho inicial da cabeca
+  default-speed: 90.0           # graus por segundo (90 = volta completa em 4s)
+  interaction-size-multiplier: 1.0   # area de clique = scale * isso
+
+# ------------------------------------------------------------
+#  TAB (tablist + nametag + ordenacao)
+#  IMPORTANTE: remova o plugin TAB antigo, ou ponha enabled: false
+# ------------------------------------------------------------
+tab:
+  enabled: true
+  update-ticks: 10              # de quantos em quantos ticks atualiza (20 ticks = 1s)
+  sorting: true                 # ordena a tab pela prioridade do grupo
+  collision: false              # colisao entre jogadores
+  group-placeholder: "%luckperms_primary_group_name%"
+  default-priority: 50
+  tab-format: "%luckperms_prefix%%player%"
+  nametag-prefix: "%luckperms_prefix%"
+  nametag-suffix: ""
+
+  header:
+    interval: 20                # ticks entre cada frame
+    frames:
+      - "\n&#54DAF4&l[&#54C5EA&lZ&#54B1DF&la&#549CD5&lr&#5487CB&lM&#5473C0&lC&#545EB6&l] &#E60000&lREDE ZARMC\n&7Bem-vindo, &f%player%\n"
+      - "\n&#54C5EA&l[&#54B1DF&lZ&#549CD5&la&#5487CB&lr&#5473C0&lM&#545EB6&lC&#54DAF4&l] &#F30000&lREDE ZARMC\n&7Bem-vindo, &f%player%\n"
+  footer:
+    interval: 20
+    frames:
+      - "\n&7Jogadores online: &a%online%&7/&f%max%\n&7Ping: &a%ping%ms\n&7Loja: &fzarmc.com.br\n"
+
+  # Prioridade: menor numero = aparece mais em cima na tab.
+  # Opcional por grupo: tab-format, nametag-prefix, nametag-suffix
+  groups:
+    dono:         { priority: 1 }
+    admin:        { priority: 2 }
+    mod:          { priority: 3 }
+    suporte:      { priority: 4 }
+    midiaplus:    { priority: 5 }
+    midia:        { priority: 6 }
+    zarmc:        { priority: 7 }
+    vipeterno:    { priority: 8 }
+    vipinvestidor: { priority: 9 }
+    vipplus:      { priority: 10 }
+    vip:          { priority: 11 }
+    default:      { priority: 50 }
+
+# ------------------------------------------------------------
+#  SCOREBOARD (sidebar). Maximo 15 linhas.
+# ------------------------------------------------------------
+scoreboard:
+  enabled: true
+  hide-numbers: true            # esconde os numeros vermelhos da direita
+  disabled-worlds: []
+  title:
+    interval: 20
+    frames:
+      - "&#54DAF4&lZarMC"
+      - "&#54C5EA&lZarMC"
+  lines:
+    - "&8&m                    "
+    - "&fJogador: &b%player%"
+    - "&fOnline: &a%online%&7/&f%max%"
+    - ""
+    - "&fDinheiro: &a%vault_eco_balance_formatted%"
+    - "&fClan: &e%simpleclans_tag%"
+    - ""
+    - "&7zarmc.com.br"
